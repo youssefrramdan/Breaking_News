@@ -142,19 +142,7 @@ const fetchTechnologyNews = async () => {
   displayNews(newsDataArr);
 };
 
-const fetchQueryNews = async (query) => {
-  const response = await fetch(`${SEARCH_NEWS}${query}&apiKey=${API_KEY}`);
-  let newsDataArr = [];
-  if (response.ok) {
-    const myJson = await response.json();
-    newsDataArr = myJson.articles;
-  } else {
-    console.log(response.status, response.statusText);
-    newsdetails.innerHTML = "<h5>No data found.</h5>";
-    return;
-  }
-  displayNews(newsDataArr);
-};
+
 
 function displayNews(newsDataArr) {
   newsdetails.innerHTML = "";
